@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jane Bugai</title>
+<meta name="description" content="Projects and work by janebugai.">
+<style>
+  :root {
+    --bg: #F3F7FB;
+    --bg-subtle: #f5f5f7;
+    --text: #1a1a1e;
+    --text-muted: #5c5c66;
+    --border: #e2e2e6;
+    --accent: #3454d1;
+    --accent-bg: #eef1fc;
+    --name-color: #0F5ABE;
+    --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+    --editorial-blue: #5B7FA6;
+    --rule: #d6d6da;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121214;
+      --bg-subtle: #1c1c1f;
+      --text: #f0f0f2;
+      --text-muted: #a3a3ad;
+      --border: #2c2c30;
+      --accent: #7c93ff;
+      --accent-bg: #1e2440;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 5rem;
+  }
+  header h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 2.75rem;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.01em;
+    color: var(--name-color);
+  }
+  header p.tagline {
+    color: var(--text-muted);
+    margin: 0 0 1.5rem;
+    font-size: 1.05rem;
+  }
+  .links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  .links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .links a:hover {
+    border-color: var(--accent);
+    background: var(--accent-bg);
+  }
+  section h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.9rem;
+    color: var(--editorial-blue);
+    margin: 0 0 0;
+    padding-bottom: 1.15rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .project {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 1.85rem 0;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.15s ease;
+  }
+  .project:hover h3 {
+    color: var(--editorial-blue);
+  }
+  .project-thumb {
+    flex-shrink: 0;
+    width: 130px;
+    aspect-ratio: 4 / 3;
+    background: #ffffff;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .project-thumb svg,
+  .project-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .project-body {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1.5rem;
+  }
+  .project h3 {
+    margin: 0 0 0.45rem;
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: var(--text);
+    transition: color 0.15s ease;
+  }
+  .project p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+  }
+  .meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .lang-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--editorial-blue);
+    display: inline-block;
+  }
+  .more {
+    display: block;
+    padding: 1.35rem 0;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.15s ease;
+  }
+  .more:hover {
+    color: var(--editorial-blue);
+  }
+  footer {
+    margin-top: 4rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  @media (max-width: 480px) {
+    .project-thumb {
+      width: 90px;
+    }
+    .project-body {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.35rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Jane Bugai</h1>
+      <p class="tagline">Building things with code — projects, experiments, and notes.</p>
+      <div class="links">
+        <a href="https://github.com/janebugai">GitHub ↗</a>
+        <a href="mailto:janebugai@gmail.com">Email</a>
+        <a href="#">Publications</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Projects</h2>
+
+      <a class="project" href="https://github.com/janebugai">
+        <div class="project-thumb">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Wireframe globe diagram">
+            <rect x="0" y="0" width="200" height="200" fill="#ffffff"/>
+            <g stroke="var(--editorial-blue)" stroke-width="1" fill="none" opacity="0.85">
+              <circle cx="100" cy="100" r="74"/>
+              <ellipse cx="100" cy="100" rx="74" ry="22"/>
+              <ellipse cx="100" cy="100" rx="74" ry="45"/>
+              <ellipse cx="100" cy="100" rx="22" ry="74"/>
+              <ellipse cx="100" cy="100" rx="45" ry="74"/>
+              <line x1="26" y1="100" x2="174" y2="100" opacity="0.6"/>
+              <line x1="100" y1="26" x2="100" y2="174" opacity="0.6"/>
+            </g>
+            <circle cx="132" cy="60" r="3" fill="var(--name-color)"/>
+          </svg>
+        </div>
+        <div class="project-body">
+          <div>
+            <h3>Census/BLS Labor Market Dashboard</h3>
+            <p>Dashboard visualizing labor market trends from Census and Bureau of Labor Statistics data.</p>
+          </div>
+          <div class="meta">
+            <span class="lang-dot"></span>
+            <span>In progress</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project" href="https://github.com/janebugai">
+        <div class="project-thumb">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Node network diagram">
+            <rect x="0" y="0" width="200" height="200" fill="#ffffff"/>
+            <g stroke="var(--editorial-blue)" stroke-width="1" opacity="0.85">
+              <line x1="40" y1="50" x2="100" y2="30"/>
+              <line x1="100" y1="30" x2="160" y2="55"/>
+              <line x1="40" y1="50" x2="70" y2="110"/>
+              <line x1="100" y1="30" x2="100" y2="100"/>
+              <line x1="160" y1="55" x2="140" y2="120"/>
+              <line x1="70" y1="110" x2="100" y2="100"/>
+              <line x1="100" y1="100" x2="140" y2="120"/>
+              <line x1="70" y1="110" x2="60" y2="170"/>
+              <line x1="100" y1="100" x2="110" y2="172"/>
+              <line x1="140" y1="120" x2="150" y2="168"/>
+            </g>
+            <g fill="var(--editorial-blue)">
+              <circle cx="40" cy="50" r="4"/>
+              <circle cx="160" cy="55" r="4"/>
+              <circle cx="70" cy="110" r="4"/>
+              <circle cx="140" cy="120" r="4"/>
+              <circle cx="60" cy="170" r="4"/>
+              <circle cx="110" cy="172" r="4"/>
+              <circle cx="150" cy="168" r="4"/>
+            </g>
+            <circle cx="100" cy="30" r="5" fill="var(--name-color)"/>
+            <circle cx="100" cy="100" r="5" fill="var(--name-color)"/>
+          </svg>
+        </div>
+        <div class="project-body">
+          <div>
+            <h3>Consumer Complaint / Fraud Detection (CFPB)</h3>
+            <p>Fraud detection and complaint analysis built on CFPB consumer complaint data.</p>
+          </div>
+          <div class="meta">
+            <span class="lang-dot"></span>
+            <span>In progress</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project" href="https://github.com/janebugai">
+        <div class="project-thumb">
+          <img src="images/banking-tech.png" alt="Businessman holding a tablet with a fintech network of banking, security, and cloud icons overlaid on a city skyline">
+        </div>
+        <div class="project-body">
+          <div>
+            <h3>Consumer Spending Dashboard</h3>
+            <p>Interactive dashboard tracking consumer spending patterns and trends.</p>
+          </div>
+          <div class="meta">
+            <span class="lang-dot"></span>
+            <span>In progress</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="more" href="https://github.com/janebugai?tab=repositories">See all repositories on GitHub →</a>
+    </section>
+
+    <footer>
+      &copy; 2026 Jane Bugai
+    </footer>
+  </div>
+</body>
+</html>
