@@ -3,18 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Placeholder</title>
+<title>Jane Bugai</title>
 <meta name="description" content="Projects and work by mossloop.">
 <style>
   :root {
-    --bg: #F3F7FB;
+    --bg: #F7F4EE;
     --bg-subtle: #f5f5f7;
-    --text: #1a1a1e;
+    --text: #263845;
     --text-muted: #5c5c66;
-    --border: #e2e2e6;
-    --accent: #3454d1;
-    --accent-bg: #eef1fc;
-    --name-color: #0F5ABE;
+    --name-color: #123B59;
     --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
     --editorial-blue: #5B7FA6;
     --rule: #d6d6da;
@@ -25,9 +22,7 @@
       --bg-subtle: #1c1c1f;
       --text: #f0f0f2;
       --text-muted: #a3a3ad;
-      --border: #2c2c30;
-      --accent: #7c93ff;
-      --accent-bg: #1e2440;
+      --rule: #2c2c30;
     }
   }
   * { box-sizing: border-box; }
@@ -39,17 +34,49 @@
     line-height: 1.5;
   }
   .wrap {
-    max-width: 860px;
+    max-width: 1020px;
     margin: 0 auto;
     padding: 4rem 1.5rem 5rem;
+  }
+  .header-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+    margin-bottom: 1.75rem;
   }
   header h1 {
     font-family: var(--serif);
     font-weight: 400;
     font-size: 2.75rem;
-    margin: 0 0 0.5rem;
+    margin: 0;
     letter-spacing: -0.01em;
     color: var(--name-color);
+  }
+  .intro {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.75rem;
+  }
+  .avatar {
+    flex-shrink: 0;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    background: var(--bg-subtle);
+  }
+  .avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  header .bio {
+    flex: 1 1 auto;
+    min-width: 0;
   }
   header .bio p {
     color: var(--text-muted);
@@ -62,31 +89,31 @@
   }
   .links {
     display: flex;
-    gap: 0.75rem;
+    gap: 1.75rem;
     flex-wrap: wrap;
-    margin-bottom: 1.75rem;
   }
   .links a {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    padding: 0.4rem 0.9rem;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    color: var(--text);
+    gap: 0.35rem;
+    padding: 0.3rem 0.05rem;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--name-color);
     text-decoration: none;
-    font-size: 0.9rem;
-    transition: border-color 0.15s ease, background 0.15s ease;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: color 0.15s ease, border-color 0.15s ease;
   }
   .links a:hover {
-    border-color: var(--accent);
-    background: var(--accent-bg);
+    color: var(--editorial-blue);
+    border-bottom-color: var(--editorial-blue);
   }
   section h2 {
     font-family: var(--serif);
     font-weight: 400;
-    font-size: 1.9rem;
-    color: var(--editorial-blue);
+    font-size: 1.3rem;
+    color: var(--text-muted);
     margin: 0 0 0;
     padding-bottom: 1.15rem;
     border-bottom: 1px solid var(--rule);
@@ -99,10 +126,31 @@
     border-bottom: 1px solid var(--rule);
     text-decoration: none;
     color: inherit;
-    transition: color 0.15s ease;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+  }
+  .project:hover {
+    background-color: #ffffff;
   }
   .project:hover h3 {
-    color: var(--editorial-blue);
+    color: #315D7A;
+  }
+  .project-cta {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #315D7A;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+  .project:hover .project-cta {
+    opacity: 1;
+    transform: translateX(0);
   }
   .project-thumb {
     flex-shrink: 0;
@@ -184,13 +232,29 @@
     }
     header .bio p {
       font-size: 1rem;
+      text-align: left;
+    }
+    .intro {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+    }
+    .avatar {
+      width: 110px;
+      height: 110px;
+    }
+    .header-top {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.6rem;
     }
     .links a {
-      padding: 0.55rem 1rem;
+      padding: 0.4rem 0.05rem;
       font-size: 0.95rem;
     }
     section h2 {
-      font-size: 1.6rem;
+      font-size: 1.15rem;
     }
     .project {
       gap: 1.1rem;
@@ -203,6 +267,9 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 0.35rem;
+    }
+    .project-cta {
+      display: none;
     }
     .project h3 {
       font-size: 1.2rem;
@@ -222,20 +289,27 @@
 <body>
   <div class="wrap">
     <header>
-      <h1>Placeholder</h1>
-      <div class="links">
-        <a href="https://github.com/mossloop">GitHub ↗</a>
-        <a href="https://www.linkedin.com/in/evgenia-jane-bugai-21530516/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a>
+      <div class="header-top">
+        <h1>Jane Bugai</h1>
+        <div class="links">
+          <a href="https://github.com/mossloop">GitHub</a>
+          <a href="https://www.linkedin.com/in/evgenia-jane-bugai-21530516/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+        </div>
       </div>
-      <div class="bio">
-        <p>Hello! Welcome to my page. My name is Evgenia Jane Bugai. I was born and raised in Ukraine, moved to the US in 2008, spent 15 years in New York City, and now call Miami home. I have over 10 years of experience across finance, analytics, and data engineering at leading financial services firms.</p>
-        <p>I started my career in Finance and Accounting and eventually found my way into data because I genuinely love digging into the details, testing assumptions, finding patterns, and solving problems. What I enjoy most is turning complex data into practical insights that help people make better decisions.</p>
+      <div class="intro">
+        <div class="avatar">
+          <img src="images/profile.jpg" alt="Portrait of Jane Bugai">
+        </div>
+        <div class="bio">
+          <p>Hello! I'm Jane 👋 I was born and raised in Ukraine, moved to the U.S. in 2008, spent 15 years in New York City, and now call Miami home. I have 10+ years of experience across finance, analytics, and data engineering at leading financial services firms.</p>
+          <p>I started my career in Finance & Accounting and eventually found my way into data because I love digging into details, testing assumptions, finding patterns, and turning complex data into insights that help people make better decisions.</p>
+        </div>
       </div>
     </header>
 
     <section>
-      <h2>Projects</h2>
+      <h2>Selected Projects</h2>
 
       <a class="project" href="https://us-labor-market-dashboard.streamlit.app/" target="_blank" rel="noopener noreferrer">
         <div class="project-thumb">
@@ -247,6 +321,7 @@
             <p>Dashboard visualizing labor market trends from Census and Bureau of Labor Statistics data.</p>
           </div>
         </div>
+        <span class="project-cta">View project <span aria-hidden="true">→</span></span>
       </a>
 
       <a class="project" href="https://github.com/mossloop">
@@ -263,6 +338,7 @@
             <span>In progress</span>
           </div>
         </div>
+        <span class="project-cta">View project <span aria-hidden="true">→</span></span>
       </a>
 
       <a class="project" href="https://github.com/mossloop">
@@ -279,13 +355,14 @@
             <span>In progress</span>
           </div>
         </div>
+        <span class="project-cta">View project <span aria-hidden="true">→</span></span>
       </a>
 
       <a class="more" href="https://github.com/mossloop?tab=repositories">See all repositories on GitHub →</a>
     </section>
 
     <footer>
-      &copy; 2026 Placeholder
+      &copy; 2026 Jane Bugai
     </footer>
   </div>
 </body>
