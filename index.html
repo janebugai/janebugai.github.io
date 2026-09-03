@@ -51,16 +51,20 @@
     letter-spacing: -0.01em;
     color: var(--name-color);
   }
-  header p.tagline {
+  header .bio p {
     color: var(--text-muted);
-    margin: 0 0 1.5rem;
+    margin: 0 0 1rem;
     font-size: 1.05rem;
+    text-align: justify;
+  }
+  header .bio p:last-child {
+    margin-bottom: 1.5rem;
   }
   .links {
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
-    margin-bottom: 3rem;
+    margin-bottom: 1.75rem;
   }
   .links a {
     display: inline-flex;
@@ -178,7 +182,7 @@
     header h1 {
       font-size: 2.1rem;
     }
-    header p.tagline {
+    header .bio p {
       font-size: 1rem;
     }
     .links a {
@@ -219,11 +223,14 @@
   <div class="wrap">
     <header>
       <h1>Placeholder</h1>
-      <p class="tagline">Building things with AI — projects, experiments, and notes.</p>
       <div class="links">
         <a href="https://github.com/mossloop">GitHub ↗</a>
-        <a href="mailto:janebugai@gmail.com">Email</a>
-        <a href="resume.html">Resume</a>
+        <a href="https://www.linkedin.com/in/evgenia-jane-bugai-21530516/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a>
+      </div>
+      <div class="bio">
+        <p>Hello! Welcome to my page. My name is Evgenia Jane Bugai. I was born and raised in Ukraine, moved to the US in 2008, spent 15 years in New York City, and now call Miami home. I have over 10 years of experience across finance, analytics, and data engineering at leading financial services firms.</p>
+        <p>I started my career in Finance and Accounting and eventually found my way into data because I genuinely love digging into the details, testing assumptions, finding patterns, and solving problems. What I enjoy most is turning complex data into practical insights that help people make better decisions.</p>
       </div>
     </header>
 
