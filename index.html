@@ -7,14 +7,24 @@
 <meta name="description" content="Projects and work by Jane Bugai.">
 <style>
   :root {
-    --bg: #F7F4EE;
+    --bg: #ffffff;
     --bg-subtle: #f5f5f7;
     --text: #263845;
     --text-muted: #5c5c66;
     --name-color: #123B59;
     --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
     --editorial-blue: #5B7FA6;
-    --rule: #d6d6da;
+    --accent-blue: #3D6EA0;
+    --rule: #d9dde2;
+    --hero-bg: #EDF1F6;
+    --footer-bg: #16283D;
+    --footer-text: rgba(255, 255, 255, 0.78);
+    --badge-blue-bg: #DCEAFB;
+    --badge-blue-fg: #2F6FB0;
+    --badge-green-bg: #E1F0E4;
+    --badge-green-fg: #2E7D4F;
+    --badge-orange-bg: #FCEBD5;
+    --badge-orange-fg: #C97A1E;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -23,6 +33,13 @@
       --text: #f0f0f2;
       --text-muted: #a3a3ad;
       --rule: #2c2c30;
+      --hero-bg: #1a2530;
+      --badge-blue-bg: #1e3a52;
+      --badge-blue-fg: #8fc1e8;
+      --badge-green-bg: #1f3326;
+      --badge-green-fg: #8fd6a0;
+      --badge-orange-bg: #3a2c18;
+      --badge-orange-fg: #f0b876;
     }
   }
   * { box-sizing: border-box; }
@@ -36,33 +53,73 @@
   .wrap {
     max-width: 1020px;
     margin: 0 auto;
-    padding: 4rem 1.5rem 5rem;
+    padding: 0 1.5rem;
   }
-  .header-top {
+  a { color: inherit; }
+
+  /* Top bar */
+  .topbar {
+    border-bottom: 1px solid var(--rule);
+  }
+  .topbar .wrap {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 0.75rem 2rem;
-    margin-bottom: 1.75rem;
+    gap: 0.75rem 1.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
-  header h1 {
+  .topbar h1 {
     font-family: var(--serif);
     font-weight: 400;
-    font-size: 2.75rem;
+    font-size: 1.65rem;
     margin: 0;
     letter-spacing: -0.01em;
     color: var(--name-color);
   }
-  .intro {
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+  }
+  .nav-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    text-decoration: none;
+    color: var(--name-color);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: color 0.15s ease;
+  }
+  .nav-links a:hover {
+    color: var(--editorial-blue);
+  }
+  .nav-links a svg {
+    flex-shrink: 0;
+  }
+  .nav-divider {
+    color: var(--rule);
+    font-size: 1rem;
+  }
+
+  /* Hero */
+  .hero {
+    background: var(--hero-bg);
+  }
+  .hero .wrap {
     display: flex;
     align-items: flex-start;
-    gap: 1.75rem;
+    gap: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
   .avatar {
     flex-shrink: 0;
-    width: 140px;
-    height: 140px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     overflow: hidden;
     border: 1px solid var(--rule);
@@ -74,55 +131,76 @@
     height: 100%;
     object-fit: cover;
   }
-  header .bio {
-    flex: 1 1 auto;
-    min-width: 0;
+  .intro-text {
+    max-width: 640px;
   }
-  header .bio p {
-    color: var(--text-muted);
-    margin: 0 0 1rem;
-    font-size: 1.05rem;
-    text-align: justify;
-  }
-  header .bio p:last-child {
-    margin-bottom: 1.5rem;
-  }
-  .links {
+  .greeting {
+    margin: 0 0 0.6rem;
     display: flex;
-    gap: 1.75rem;
+    align-items: baseline;
+    gap: 0.3rem;
     flex-wrap: wrap;
   }
-  .links a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.3rem 0.05rem;
-    border: none;
-    border-bottom: 2px solid transparent;
-    color: var(--name-color);
-    text-decoration: none;
-    font-size: 0.95rem;
+  .eyebrow {
+    font-size: 0.8rem;
     font-weight: 700;
-    transition: color 0.15s ease, border-color 0.15s ease;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-blue);
   }
-  .links a:hover {
-    color: var(--editorial-blue);
-    border-bottom-color: var(--editorial-blue);
+  .hero-name {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-blue);
   }
-  section h2 {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: 1.3rem;
-    color: var(--text-muted);
-    margin: 0 0 0;
-    padding-bottom: 1.15rem;
-    border-bottom: 1px solid var(--rule);
+  .bio p {
+    margin: 0 0 0.6rem;
+    color: var(--text);
+    font-size: 0.98rem;
+  }
+  .bio p:last-child {
+    margin-bottom: 0;
+  }
+  .bio-rule {
+    max-width: 640px;
+    height: 1px;
+    background: var(--rule);
+    border: none;
+    margin: 0.75rem 0;
+  }
+
+  /* Selected Projects */
+  .projects-section .wrap {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  .section-label-row {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .section-label-row h2 {
+    flex-shrink: 0;
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--name-color);
+  }
+  .label-rule {
+    flex: 1 1 auto;
+    height: 1px;
+    background: var(--rule);
   }
   .project {
     display: flex;
     align-items: center;
-    gap: 1.6rem;
-    padding: 1.85rem 0;
+    gap: 1.5rem;
+    padding: 1.6rem 0;
     border-bottom: 1px solid var(--rule);
     text-decoration: none;
     color: inherit;
@@ -130,7 +208,7 @@
     transition: background-color 0.15s ease;
   }
   .project:hover {
-    background-color: #ffffff;
+    background-color: var(--bg-subtle);
   }
   .project:hover h3 {
     color: #315D7A;
@@ -152,22 +230,29 @@
     opacity: 1;
     transform: translateX(0);
   }
-  .project-thumb {
+  .icon-badge {
     flex-shrink: 0;
-    width: 130px;
-    aspect-ratio: 4 / 3;
-    background: #ffffff;
-    border: 1px solid var(--rule);
-    border-radius: 10px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .project-thumb svg,
-  .project-thumb img {
-    display: block;
+  .icon-badge svg {
+    width: 28px;
+    height: 28px;
+  }
+  .icon-badge img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transform: scale(1.3);
   }
+  .icon-badge.blue { background: var(--badge-blue-bg); color: var(--badge-blue-fg); }
+  .icon-badge.green { background: var(--badge-green-bg); color: var(--badge-green-fg); }
+  .icon-badge.orange { background: var(--badge-orange-bg); color: var(--badge-orange-fg); }
   .project-body {
     flex: 1 1 auto;
     min-width: 0;
@@ -177,23 +262,23 @@
     gap: 1.5rem;
   }
   .project h3 {
-    margin: 0 0 0.45rem;
+    margin: 0 0 0.4rem;
     font-family: var(--serif);
     font-weight: 400;
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     color: var(--text);
     transition: color 0.15s ease;
   }
   .project p {
     margin: 0;
     color: var(--text-muted);
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
   .meta {
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--text-muted);
@@ -207,9 +292,11 @@
     background: var(--editorial-blue);
     display: inline-block;
   }
+  .lang-dot.green { background: var(--badge-green-fg); }
+  .lang-dot.orange { background: var(--badge-orange-fg); }
   .more {
     display: block;
-    padding: 1.35rem 0;
+    padding: 1.25rem 0 0;
     color: var(--text-muted);
     text-decoration: none;
     font-size: 1rem;
@@ -218,50 +305,58 @@
   .more:hover {
     color: var(--editorial-blue);
   }
-  footer {
-    margin-top: 4rem;
-    color: var(--text-muted);
+
+  /* Footer */
+  .site-footer {
+    background: var(--footer-bg);
+  }
+  .site-footer .wrap {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: var(--footer-text);
     font-size: 0.85rem;
   }
+
   @media (max-width: 600px) {
-    .wrap {
-      padding: 2.5rem 1.25rem 3.5rem;
+    .topbar .wrap {
+      flex-direction: column;
+      align-items: flex-start;
     }
-    header h1 {
-      font-size: 2.1rem;
-    }
-    header .bio p {
-      font-size: 1rem;
-      text-align: left;
-    }
-    .intro {
+    .hero .wrap {
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 1rem;
+      padding-top: 1.75rem;
+      padding-bottom: 1.75rem;
     }
     .avatar {
-      width: 110px;
-      height: 110px;
+      width: 100px;
+      height: 100px;
     }
-    .header-top {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.6rem;
+    .hero-name {
+      font-size: 0.8rem;
     }
-    .links a {
-      padding: 0.4rem 0.05rem;
-      font-size: 0.95rem;
+    .bio p {
+      font-size: 0.94rem;
     }
-    section h2 {
-      font-size: 1.15rem;
+    .bio-rule {
+      margin: 0.75rem auto;
+    }
+    .projects-section .wrap {
+      padding-top: 2.25rem;
+      padding-bottom: 2.25rem;
     }
     .project {
       gap: 1.1rem;
       padding: 1.4rem 0;
     }
-    .project-thumb {
-      width: 88px;
+    .icon-badge {
+      width: 52px;
+      height: 52px;
+    }
+    .icon-badge svg {
+      width: 22px;
+      height: 22px;
     }
     .project-body {
       flex-direction: column;
@@ -272,70 +367,99 @@
       display: none;
     }
     .project h3 {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
     }
     .project p {
-      font-size: 0.95rem;
-    }
-  }
-
-  @media (max-width: 360px) {
-    .project-thumb {
-      width: 72px;
+      font-size: 0.92rem;
     }
   }
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="header-top">
-        <h1>Jane Bugai</h1>
-        <div class="links">
-          <a href="https://github.com/janebugai">GitHub</a>
-          <a href="https://www.linkedin.com/in/evgenia-jane-bugai-21530516/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
-        </div>
+  <header class="topbar">
+    <div class="wrap">
+      <h1>Jane Bugai</h1>
+      <div class="nav-links">
+        <a href="https://github.com/janebugai">
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="https://www.linkedin.com/in/evgenia-jane-bugai-21530516/" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <rect x="1" y="1" width="22" height="22" rx="4"/>
+            <rect x="6.9" y="9.6" width="2.4" height="7.4" fill="#fff"/>
+            <circle cx="8.1" cy="7.1" r="1.4" fill="#fff"/>
+            <path d="M12.3 9.6h2.3v1.1c.4-.66 1.25-1.32 2.55-1.32 2.5 0 3.15 1.5 3.15 3.7v4.5h-2.4v-4c0-.85-.15-1.7-1.25-1.7-1.1 0-1.35.85-1.35 1.75v3.95h-2.4V9.6z" fill="#fff"/>
+          </svg>
+          LinkedIn
+        </a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="resume.pdf" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/>
+            <path d="M15 2v5h5"/>
+            <line x1="8" y1="13" x2="16" y2="13"/>
+            <line x1="8" y1="17" x2="16" y2="17"/>
+            <line x1="8" y1="9" x2="11" y2="9"/>
+          </svg>
+          Resume
+        </a>
       </div>
-      <div class="intro">
-        <div class="avatar">
-          <img src="images/profile.jpg" alt="Portrait of Jane Bugai">
-        </div>
-        <div class="bio">
-          <p>Hello! I'm Jane 👋 I have 10+ years of experience across finance, analytics, and data engineering at leading financial services firms, including Millennium Management, Goldman Sachs, and Bank of America.</p>
-          <p>I started my career in Finance & Accounting and eventually found my way into data because I love digging into the details, testing assumptions, finding patterns, and turning complex data into insights that help people make better decisions.</p>
-          <p>I'm originally from Ukraine and have been living in the U.S. since 2008. Outside of work, I enjoy traveling, playing racquet sports, and teaching my cat Luna new tricks.</p>
-        </div>
-      </div>
-    </header>
+    </div>
+  </header>
 
-    <section>
-      <h2>Selected Projects</h2>
+  <section class="hero">
+    <div class="wrap">
+      <div class="avatar">
+        <img src="images/profile.jpg" alt="Portrait of Jane Bugai">
+      </div>
+      <div class="intro-text">
+        <p class="greeting">
+          <span class="eyebrow">Hello, I'm</span>
+          <span class="hero-name">Jane</span>
+        </p>
+        <div class="bio">
+          <p>I have 10+ years of experience across finance, analytics, and data engineering at leading financial services firms, including Millennium Management, Goldman Sachs, and Bank of America.</p>
+          <p>I started my career in Finance &amp; Accounting and eventually found my way into analytics because I love digging into the details, testing assumptions, finding patterns, and turning complex data into insights that help drive better decisions.</p>
+          <hr class="bio-rule">
+          <p>I'm originally from Ukraine and have been living in the US since 2008. Outside of work, I enjoy traveling, playing racquet sports, and learning new things.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section">
+    <div class="wrap">
+      <div class="section-label-row">
+        <h2>Selected Projects</h2>
+        <span class="label-rule"></span>
+      </div>
 
       <a class="project" href="https://us-labor-market-dashboard.streamlit.app/" target="_blank" rel="noopener noreferrer">
-        <div class="project-thumb">
-          <img src="images/labor-market.jpg" alt="Isometric illustration of people analyzing a rising financial chart with stacks of coins and cash">
+        <div class="icon-badge blue">
+          <img src="images/labor-market-icon.png" alt="Rising bar and line chart icon">
         </div>
         <div class="project-body">
           <div>
             <h3>Census/BLS Labor Market Dashboard</h3>
-            <p>Dashboard visualizing labor market trends from Census and Bureau of Labor Statistics data.</p>
+            <p>Interactive dashboard analyzing U.S. labor market trends using Census and Bureau of Labor Statistics data.</p>
           </div>
         </div>
         <span class="project-cta">View project <span aria-hidden="true">→</span></span>
       </a>
 
-      <a class="project" href="https://github.com/janebugai">
-        <div class="project-thumb">
-          <img src="images/consumer-complaint.jpg" alt="Flat illustration of phishing hooks pulling a login form, an email, and a padlock, representing fraud and data theft">
+      <a class="project" href="https://github.com/janebugai/ai-financial-analyst" target="_blank" rel="noopener noreferrer">
+        <div class="icon-badge green">
+          <img src="images/ai-agent-icon.png" alt="Brain and code brackets icon representing an AI agent">
         </div>
         <div class="project-body">
           <div>
-            <h3>Consumer Complaint / Fraud Detection (CFPB)</h3>
-            <p>Fraud detection and complaint analysis built on CFPB consumer complaint data.</p>
+            <h3>AI Investment Brief Agent</h3>
+            <p>AI-powered financial analyst that analyzes real-time stock data and generates an investment brief with price history and a downloadable PDF.</p>
           </div>
           <div class="meta">
-            <span class="lang-dot"></span>
+            <span class="lang-dot green"></span>
             <span>In progress</span>
           </div>
         </div>
@@ -343,8 +467,8 @@
       </a>
 
       <a class="project" href="https://github.com/janebugai">
-        <div class="project-thumb">
-          <img src="images/consumer-spending.jpg" alt="Illustration of hands reaching out of computer monitors exchanging a credit card and a shopping bag, representing online consumer spending">
+        <div class="icon-badge orange">
+          <img src="images/consumer-spending-icon.png" alt="Shopping cart icon">
         </div>
         <div class="project-body">
           <div>
@@ -352,7 +476,7 @@
             <p>Interactive dashboard tracking consumer spending patterns and trends.</p>
           </div>
           <div class="meta">
-            <span class="lang-dot"></span>
+            <span class="lang-dot orange"></span>
             <span>In progress</span>
           </div>
         </div>
@@ -360,11 +484,13 @@
       </a>
 
       <a class="more" href="https://github.com/janebugai?tab=repositories">See all repositories on GitHub →</a>
-    </section>
+    </div>
+  </section>
 
-    <footer>
+  <footer class="site-footer">
+    <div class="wrap">
       &copy; 2026 Jane Bugai
-    </footer>
-  </div>
+    </div>
+  </footer>
 </body>
 </html>
