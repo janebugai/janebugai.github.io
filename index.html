@@ -190,7 +190,7 @@
     display: flex;
     align-items: center;
     gap: 1.25rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.4rem;
   }
   .section-label-row h2 {
     flex-shrink: 0;
@@ -311,6 +311,12 @@
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.15s ease;
+  }
+  .projects-note {
+    margin: 0 0 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-style: italic;
   }
   .more:hover {
     color: var(--editorial-blue);
@@ -448,6 +454,7 @@
         <h2>Selected Projects</h2>
         <span class="label-rule"></span>
       </div>
+      <p class="projects-note">These projects are living builds. I continuously iterate on them as I explore new data, tools, and AI capabilities.</p>
 
       <a class="project" href="https://us-labor-market-dashboard.streamlit.app/" target="_blank" rel="noopener noreferrer">
         <div class="icon-badge blue">
