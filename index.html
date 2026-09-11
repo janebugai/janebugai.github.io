@@ -24,6 +24,7 @@
     --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
     --editorial-blue: #5B7FA6;
     --accent-blue: #3D6EA0;
+    --accent-tan: #C97A1E;
     --rule: #d9dde2;
     --hero-bg: #EDF1F6;
     --footer-bg: #16283D;
@@ -34,6 +35,13 @@
     --badge-green-fg: #2E7D4F;
     --badge-orange-bg: #FCEBD5;
     --badge-orange-fg: #C97A1E;
+    --card-bg: #ffffff;
+    --card-shadow: rgba(20, 34, 51, 0.11);
+    --tag-bg: #EBEFF4;
+    --tag-fg: #4A5A68;
+    --btn-bg: #F3D9A8;
+    --btn-bg-hover: #EECB8B;
+    --btn-fg: #123B59;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -49,6 +57,13 @@
       --badge-green-fg: #8fd6a0;
       --badge-orange-bg: #3a2c18;
       --badge-orange-fg: #f0b876;
+      --card-bg: #1a1a1d;
+      --card-shadow: rgba(0, 0, 0, 0.3);
+      --tag-bg: #26262b;
+      --tag-fg: #b7c1cc;
+      --btn-bg: #3a2c18;
+      --btn-bg-hover: #4a3820;
+      --btn-fg: #f0b876;
     }
   }
   * { box-sizing: border-box; }
@@ -60,7 +75,7 @@
     line-height: 1.5;
   }
   .wrap {
-    max-width: 1020px;
+    max-width: 990px;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
@@ -75,31 +90,39 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 0.75rem 1.5rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    gap: 0.65rem 1.3rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
   }
-  .topbar h1 {
+  .name-block h1 {
     font-family: var(--serif);
     font-weight: 400;
-    font-size: 1.65rem;
+    font-size: 1.4rem;
     margin: 0;
     letter-spacing: -0.01em;
     color: var(--name-color);
   }
+  .tagline {
+    margin: 0.15rem 0 0;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 0.9rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
   }
   .nav-links a {
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
+    gap: 0.4rem;
     text-decoration: none;
     color: var(--name-color);
-    font-size: 0.95rem;
+    font-size: 0.81rem;
     font-weight: 600;
     transition: color 0.15s ease;
   }
@@ -109,10 +132,6 @@
   .nav-links a svg {
     flex-shrink: 0;
   }
-  .nav-divider {
-    color: var(--rule);
-    font-size: 1rem;
-  }
 
   /* Hero */
   .hero {
@@ -120,77 +139,74 @@
   }
   .hero .wrap {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 2rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1.05rem;
+    padding-bottom: 1.5rem;
   }
   .avatar {
     flex-shrink: 0;
-    width: 200px;
-    height: 200px;
+    width: 210px;
+    height: 210px;
     border-radius: 50%;
     overflow: hidden;
-    border: 1px solid var(--rule);
     background: var(--bg-subtle);
+    box-shadow: 0 6px 20px var(--card-shadow);
   }
   .avatar img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
   }
   .intro-text {
-    max-width: 640px;
-  }
-  .greeting {
-    margin: 0 0 0.6rem;
-    display: flex;
-    align-items: baseline;
-    gap: 0.3rem;
-    flex-wrap: wrap;
+    flex: 1 1 auto;
+    min-width: 0;
   }
   .eyebrow {
+    margin: 0 0 0.4rem;
     font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--accent-blue);
+    color: var(--accent-tan);
   }
-  .hero-name {
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent-blue);
+  .headline {
+    margin: 0 0 0.6rem;
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.85rem;
+    line-height: 1.22;
+    color: var(--name-color);
   }
   .bio p {
-    margin: 0 0 0.6rem;
+    margin: 0 0 0.4rem;
     color: var(--text);
-    font-size: 0.98rem;
+    font-size: 0.96rem;
     text-align: justify;
   }
   .bio p:last-child {
     margin-bottom: 0;
   }
   .bio-rule {
-    max-width: 640px;
-    height: 1px;
-    background: var(--rule);
+    width: 48px;
+    height: 3px;
+    background: var(--accent-tan);
     border: none;
-    margin: 0.75rem 0;
+    margin: 0.7rem 0;
   }
 
   /* Selected Projects */
   .projects-section .wrap {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 1.3rem;
+    padding-bottom: 3.5rem;
   }
   .section-label-row {
     display: flex;
     align-items: center;
     gap: 1.25rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
   }
   .section-label-row h2 {
     flex-shrink: 0;
@@ -206,44 +222,53 @@
     height: 1px;
     background: var(--rule);
   }
-  .project {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1.6rem 0;
-    border-bottom: 1px solid var(--rule);
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    transition: background-color 0.15s ease;
-  }
-  .project:hover {
-    background-color: var(--bg-subtle);
-  }
-  .project:hover h3 {
-    color: #315D7A;
-  }
-  .project-cta {
+  .view-all {
     flex-shrink: 0;
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
-    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--accent-blue);
+    font-size: 0.9rem;
     font-weight: 600;
-    color: #315D7A;
-    white-space: nowrap;
-    opacity: 0;
-    transform: translateX(-6px);
-    transition: opacity 0.15s ease, transform 0.15s ease;
+    transition: color 0.15s ease;
   }
-  .project:hover .project-cta {
-    opacity: 1;
-    transform: translateX(0);
+  .view-all:hover {
+    color: var(--editorial-blue);
+  }
+  .projects-note {
+    margin: 0 0 0.85rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+  .project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .project {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    padding: 1.15rem;
+    min-height: 153px;
+    border-radius: 14px;
+    background: var(--card-bg);
+    box-shadow: 0 1px 3px var(--card-shadow), 0 6px 18px var(--card-shadow);
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.15s ease, transform 0.15s ease, background-color 0.15s ease;
+  }
+  .project:hover {
+    background-color: var(--bg-subtle);
+    box-shadow: 0 3px 8px var(--card-shadow), 0 12px 28px var(--card-shadow);
+    transform: translateY(-1px);
   }
   .icon-badge {
     flex-shrink: 0;
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     overflow: hidden;
     display: flex;
@@ -251,8 +276,8 @@
     justify-content: center;
   }
   .icon-badge svg {
-    width: 28px;
-    height: 28px;
+    width: 21px;
+    height: 21px;
   }
   .icon-badge img {
     width: 100%;
@@ -266,60 +291,98 @@
   .project-body {
     flex: 1 1 auto;
     min-width: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1.5rem;
   }
   .project h3 {
-    margin: 0 0 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin: 0 0 0.35rem;
     font-family: var(--serif);
     font-weight: 400;
-    font-size: 1.35rem;
+    font-size: 1.15rem;
     color: var(--text);
-    transition: color 0.15s ease;
+  }
+  .status-badge {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--badge-orange-fg);
+    background: var(--badge-orange-bg);
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    white-space: nowrap;
   }
   .project p {
-    margin: 0;
+    margin: 0 0 0.6rem;
     color: var(--text-muted);
-    font-size: 1rem;
+    font-size: 0.88rem;
   }
-  .meta {
+  .tags {
     display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-muted);
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .tag {
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.22rem 0.55rem;
+    border-radius: 999px;
     white-space: nowrap;
+  }
+  .project-actions {
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.96rem;
+    padding-left: 1.3rem;
+    border-left: 1px solid var(--rule);
+    width: 155px;
   }
-  .lang-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--editorial-blue);
-    display: inline-block;
-  }
-  .lang-dot.green { background: var(--badge-green-fg); }
-  .lang-dot.orange { background: var(--badge-orange-fg); }
-  .more {
-    display: block;
-    padding: 1.25rem 0 0;
-    color: var(--text-muted);
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    background: var(--btn-bg);
+    color: var(--btn-fg);
+    font-size: 0.82rem;
+    font-weight: 700;
     text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.15s ease;
+    padding: 0.48rem 0.8rem;
+    border-radius: 9px;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
   }
-  .projects-note {
-    margin: 0 0 1.5rem;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    font-style: italic;
+  .btn-primary:hover {
+    background: var(--btn-bg-hover);
   }
-  .more:hover {
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    color: var(--name-color);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.48rem 0.8rem;
+    border: 1px solid var(--rule);
+    border-radius: 9px;
+    white-space: nowrap;
+    transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+  }
+  .btn-secondary:hover {
     color: var(--editorial-blue);
+    border-color: var(--editorial-blue);
+    background-color: var(--bg-subtle);
+  }
+  .btn-secondary svg {
+    flex-shrink: 0;
   }
 
   /* Footer */
@@ -333,7 +396,7 @@
     font-size: 0.85rem;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     .topbar .wrap {
       flex-direction: column;
       align-items: flex-start;
@@ -345,51 +408,44 @@
       padding-top: 1.75rem;
       padding-bottom: 1.75rem;
     }
-    .greeting {
+    .eyebrow {
       justify-content: center;
     }
     .avatar {
-      width: 100px;
-      height: 100px;
+      width: 140px;
+      height: 140px;
     }
-    .hero-name {
-      font-size: 0.8rem;
-    }
-    .bio p {
-      font-size: 0.94rem;
+    .headline {
+      font-size: 1.6rem;
     }
     .bio-rule {
-      margin: 0.75rem auto;
+      margin: 1rem auto;
     }
     .projects-section .wrap {
       padding-top: 2.25rem;
       padding-bottom: 2.25rem;
     }
     .project {
-      gap: 1.1rem;
-      padding: 1.4rem 0;
-    }
-    .icon-badge {
-      width: 52px;
-      height: 52px;
-    }
-    .icon-badge svg {
-      width: 22px;
-      height: 22px;
-    }
-    .project-body {
       flex-direction: column;
       align-items: flex-start;
-      gap: 0.35rem;
+      gap: 1.1rem;
+      padding: 1.4rem;
+      min-height: 0;
     }
-    .project-cta {
-      display: none;
+    .project-actions {
+      flex-direction: row;
+      width: 100%;
+      padding-left: 0;
+      border-left: none;
+      border-top: 1px solid var(--rule);
+      padding-top: 1.1rem;
+    }
+    .btn-primary,
+    .btn-secondary {
+      flex: 1 1 auto;
     }
     .project h3 {
-      font-size: 1.15rem;
-    }
-    .project p {
-      font-size: 0.92rem;
+      font-size: 1.2rem;
     }
   }
 </style>
@@ -397,15 +453,16 @@
 <body>
   <header class="topbar">
     <div class="wrap">
-      <h1>Jane Bugai</h1>
+      <div class="name-block">
+        <h1>Jane Bugai</h1>
+      </div>
       <div class="nav-links">
         <a href="https://github.com/janebugai">
-          <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
           GitHub
         </a>
-        <span class="nav-divider" aria-hidden="true">|</span>
         <a href="https://www.linkedin.com/in/evgenia-jane-bugai-21530516/" target="_blank" rel="noopener noreferrer">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <rect x="1" y="1" width="22" height="22" rx="4"/>
             <rect x="6.9" y="9.6" width="2.4" height="7.4" fill="#fff"/>
             <circle cx="8.1" cy="7.1" r="1.4" fill="#fff"/>
@@ -413,9 +470,8 @@
           </svg>
           LinkedIn
         </a>
-        <span class="nav-divider" aria-hidden="true">|</span>
         <a href="resume.pdf" target="_blank" rel="noopener noreferrer">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/>
             <path d="M15 2v5h5"/>
             <line x1="8" y1="13" x2="16" y2="13"/>
@@ -431,18 +487,15 @@
   <section class="hero">
     <div class="wrap">
       <div class="avatar">
-        <img src="images/profile.jpg" alt="Portrait of Jane Bugai">
+        <img src="images/profile.png" alt="Portrait of Jane Bugai">
       </div>
       <div class="intro-text">
-        <p class="greeting">
-          <span class="eyebrow">Hello, I'm</span>
-          <span class="hero-name">Jane</span>
-        </p>
+        <p class="eyebrow">Hello, I'm Jane</p>
+        <h2 class="headline">I build data and analytics solutions that turn complex financial and operational data into better decisions.</h2>
         <div class="bio">
-          <p>I have 10+ years of experience across finance, analytics, and data engineering at leading financial services firms, including Millennium Management, Goldman Sachs, and Bank of America.</p>
-          <p>I started my career in Finance &amp; Accounting and eventually found my way into analytics because I love digging into the details, testing assumptions, finding patterns, and turning complex data into insights that help drive better decisions.</p>
+          <p>I bring 10+ years of experience across finance, data, and technology at leading financial services firms, including Bank of America, Goldman Sachs, and Millennium Management. My background combines corporate finance and business analytics with hands-on expertise in SQL, Python, data visualization, and Generative AI, focused on solving complex business problems.</p>
           <hr class="bio-rule">
-          <p>I'm originally from Ukraine and have been living in the US since 2008. Outside of work, I enjoy traveling, playing racquet sports, and learning new things.</p>
+          <p>Originally from Ukraine, based in the U.S. since 2008. Outside of work, I enjoy traveling, racquet sports, and learning new things.</p>
         </div>
       </div>
     </div>
@@ -453,53 +506,88 @@
       <div class="section-label-row">
         <h2>Selected Projects</h2>
         <span class="label-rule"></span>
+        <a class="view-all" href="https://github.com/janebugai?tab=repositories">View all projects <span aria-hidden="true">→</span></a>
       </div>
       <p class="projects-note">These projects are living builds. I continuously iterate on them as I explore new data, tools, and AI capabilities.</p>
 
-      <a class="project" href="https://nl-to-sql-chatbot.onrender.com/" target="_blank" rel="noopener noreferrer">
-        <div class="icon-badge orange">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <ellipse cx="12" cy="5" rx="8" ry="3"/>
-            <path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/>
-            <path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/>
-          </svg>
-        </div>
-        <div class="project-body">
-          <div>
-            <h3>Natural Language to SQL Chatbot</h3>
-            <p>AI agent that turns plain-English questions into validated SQL, runs them against a database, and returns a written summary, a key figure, and a chart.</p>
+      <div class="project-list">
+        <div class="project">
+          <div class="icon-badge orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <ellipse cx="12" cy="5" rx="8" ry="3"/>
+              <path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/>
+              <path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <h3>Natural Language &rarr; SQL</h3>
+            <p>Simple AI agent that turns plain-English questions into validated SQL, runs them against a database, and returns a written summary, key insights, and a chart.</p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">OpenAI</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">Data Visualization</span>
+            </div>
+          </div>
+          <div class="project-actions">
+            <a class="btn-primary" href="https://nl-to-sql-chatbot.onrender.com/" target="_blank" rel="noopener noreferrer">View Project <span aria-hidden="true">→</span></a>
+            <a class="btn-secondary" href="https://github.com/janebugai/natural-language-to-sql-chatbot" target="_blank" rel="noopener noreferrer">
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              GitHub <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
-        <span class="project-cta">View project <span aria-hidden="true">→</span></span>
-      </a>
 
-      <a class="project" href="https://labor-market-dashboard.onrender.com/" target="_blank" rel="noopener noreferrer">
-        <div class="icon-badge blue">
-          <img src="images/labor-market-icon.png" alt="Rising bar and line chart icon">
-        </div>
-        <div class="project-body">
-          <div>
+        <div class="project">
+          <div class="icon-badge blue">
+            <img src="images/labor-market-icon.png" alt="Rising bar and line chart icon">
+          </div>
+          <div class="project-body">
             <h3>Labor Market KPIs Dashboard</h3>
             <p>Interactive dashboard analyzing U.S. labor market trends using Census and Bureau of Labor Statistics data.</p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">Plotly</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">U.S. Census</span>
+              <span class="tag">BLS</span>
+            </div>
+          </div>
+          <div class="project-actions">
+            <a class="btn-primary" href="https://labor-market-dashboard.onrender.com/" target="_blank" rel="noopener noreferrer">View Project <span aria-hidden="true">→</span></a>
+            <a class="btn-secondary" href="https://github.com/janebugai/labor-market-dashboard" target="_blank" rel="noopener noreferrer">
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              GitHub <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
-        <span class="project-cta">View project <span aria-hidden="true">→</span></span>
-      </a>
 
-      <a class="project" href="https://ai-financial-analyst-mwxw.onrender.com/" target="_blank" rel="noopener noreferrer">
-        <div class="icon-badge green">
-          <img src="images/ai-agent-icon.png" alt="Brain and code brackets icon representing an AI agent">
-        </div>
-        <div class="project-body">
-          <div>
-            <h3>AI Investment Brief Agent</h3>
-            <p>AI-powered financial analyst that analyzes real-time stock data and generates an investment brief with price history and a downloadable PDF.</p>
+        <div class="project">
+          <div class="icon-badge green">
+            <img src="images/ai-agent-icon.png" alt="Brain and code brackets icon representing an AI agent">
+          </div>
+          <div class="project-body">
+            <h3>AI Investment Brief Agent <span class="status-badge">In Progress</span></h3>
+            <p>AI-powered financial analyst that analyzes real-time stock data and generates an investment brief with price history, key metrics, and a downloadable PDF.</p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">OpenAI</span>
+              <span class="tag">Financial APIs</span>
+              <span class="tag">Data Analysis</span>
+              <span class="tag">PDF Generation</span>
+            </div>
+          </div>
+          <div class="project-actions">
+            <a class="btn-primary" href="https://ai-financial-analyst-mwxw.onrender.com/" target="_blank" rel="noopener noreferrer">View Project <span aria-hidden="true">→</span></a>
+            <a class="btn-secondary" href="https://github.com/janebugai/ai-financial-analyst" target="_blank" rel="noopener noreferrer">
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              GitHub <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
-        <span class="project-cta">View project <span aria-hidden="true">→</span></span>
-      </a>
-
-      <a class="more" href="https://github.com/janebugai?tab=repositories">See all repositories on GitHub →</a>
+      </div>
     </div>
   </section>
 
